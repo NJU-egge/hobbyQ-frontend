@@ -16,15 +16,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes basename="/hobbyQ-frontend">
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/register/fail" element={<RegisterFail />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/login/fail" element={<LoginFail />} />
-        <Route path="/:username/hobbyQ" element={<HobbyQIndex />} />
-        <Route path="/:username/hobbyQ/:hobbyQName" element={<HobbyQ />} />
-        <Route path="/:username/hobbyQ/:hobbyQName/:title" element={<Note />} />
+      <Routes>
+        <Route path="hobbyQ-frontend/" element={<Home />} />
+        <Route path="hobbyQ-frontend/register" element={<Register />} />
+        <Route path="hobbyQ-frontend/register/fail" element={<RegisterFail />} />
+        <Route path="hobbyQ-frontend/login" element={<Login />} />
+        <Route path="hobbyQ-frontend/login/fail" element={<LoginFail />} />
+        <Route path="hobbyQ-frontend/:username/hobbyQ" element={<HobbyQIndex />} />
+        <Route path="hobbyQ-frontend/:username/hobbyQ/:hobbyQName" element={<HobbyQ />} />
+        <Route path="hobbyQ-frontend/:username/hobbyQ/:hobbyQName/:title" element={<Note />} />
       </Routes>
     </BrowserRouter>
   );
