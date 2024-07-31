@@ -16,7 +16,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
+      <Routes basename="hobbyQ-frontend/">
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register/fail" element={<RegisterFail />} />
