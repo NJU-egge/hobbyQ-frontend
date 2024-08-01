@@ -29,8 +29,9 @@ const HobbyQ = () => {
         .then((response) => {
            
           console.log(response)
-          window.location.href = `/hobbyQ-frontend/#/${params.username}/hobbyQ/${params.hobbyQName}`
           
+          window.location.href = `/hobbyQ-frontend/#/${params.username}/hobbyQ/${params.hobbyQName}/${document.getElementById('title').value}`
+          console.log('success')
         })
     }
 
@@ -58,18 +59,24 @@ const HobbyQ = () => {
     return (
       <div className='w-full bg-gray-100'>
         <div className='flex flex-wrap bg-sky-400 p-2'>
-          <div className='flex w-1/2 justify-start p-2'>
+          <div className='flex w-1/3 justify-start p-2'>
             <button onClick={()=> {window.location.href = `/hobbyQ-frontend/#/${params.username}/hobbyQ`}}>首页</button>
+            
           </div>
-          <div className='flex w-1/2 justify-end p-2'>
+          <div className='flex w-1/3 justify-center p-2'>
+            <h>现在我们位于：{params.hobbyQName}</h>
+          </div>
+          <div className='flex w-1/3 justify-end p-2'>
             <p>Hello, {params.username}！</p>
             <a href='/hobbyQ-frontend/#/'>退出</a>
           </div>
         </div>
 
         <div className='flex flex-wrap bg-sky-200 p-2'>
-          <div className="flex w-1/5 justify-center flex-col bg-slate-500">
+          <div className="flex w-1/5 justify-start flex-col ">
+          
             <div className='flex flex-col bg-slate-200 p-2'>
+              <h className='text-center p-2'>兴趣圈</h>
                 {
                   hobbyQData.map(item => (
                     <div key={item.hobbyQName}>
@@ -87,8 +94,9 @@ const HobbyQ = () => {
             
           </div>
           
-          <div className="flex w-1/5 flex-start flex-col bg-slate-500">
+          <div className="flex w-1/5 flex-start flex-col ">
             <div className='flex flex-col bg-slate-200 p-2'>
+            <h className='text-center p-2'>标题</h>
               {
                 titleData.map(item => (
                   <div key={item.title}>
@@ -107,20 +115,23 @@ const HobbyQ = () => {
           
           </div>
           
-          <div className="flex bg-green-100 justify-center w-3/5">
-              <div className='flex flex-col justify-evenly bg-slate-200 p-2'>
+          <div className="flex bg-sky-200 flex-row justify-evenly w-3/5">
+              <div className='flex flex-col justify-evenly bg-slate-200 px-8'>
                 <h1>Welcome to {params.hobbyQName}!</h1>
-                <h>发帖规则：标题和内容必填，标题不可以和已有标题重复</h>
+                <div className='flex flex-col justify-center bg-green-300'>
+                  <h>发帖规则：标题和内容必填，标题不可以和已有标题重复</h>
+                  <h>活跃度规则：活跃度=发帖数*2+评论数*1</h>
+                </div>
                 
-                <input type="text" id="title" name="title" className='w-full h-11 bg-slate-800' placeholder='请输入标题' required />
+                <input type="text" id="title" name="title" className='w-full h-11' placeholder='请输入标题' required />
                 
-                <input type="text" id="note" name="note" className='w-full h-11 bg-slate-500' placeholder='请输入内容' required />
+                <input type="text" id="note" name="note" className='w-full h-11' placeholder='请输入内容' required />
               
                 <button onClick={()=>handleSubmit()}>发帖</button>
               
             </div>
-            <div>
-              <h>活跃度</h>
+            <div className='flex flex-col bg-slate-200 p-2'>
+              <h className='text-center p-2'>活跃度</h>
               {
                 hotData.map(item => (
                   <div key={item.username}>
@@ -139,8 +150,8 @@ const HobbyQ = () => {
         </div>
         
       
-        <div className='flex justify-center bg-slate-200 px-96 py-4'>
-          contact me : 221900209@smail.nju.edu.cn
+        <div className='flex justify-center bg-slate-200 px-96 py-1'>
+          contact me : 221900209@samil.nju.edu.cn
         </div>
       </div>
       )

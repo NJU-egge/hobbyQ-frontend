@@ -19,16 +19,16 @@ const Register = () => {
       })
   }
   return (
-    <div id='page' className="w-full bg-slate-400 rounded-2xl">
+    <div id='page' className="w-full bg-sky-200 rounded-2xl">
       <div className="container">
         <div className="login">
           <div className="hero">
             <h1>Register to <br /> Begin Your Trip</h1>
             <p>If you have an account, <br /> you can <a href="/hobbyQ-frontend/#/login">log in here</a>. </p>
           </div>
-          <div className="main content-center bg-fuchsia-50">
+          <div className="main content-center">
 
-            <div className="bg-slate-400 rounded-xl p-5">
+            <div className="bg-sky-400 rounded-xl p-5">
               <p>
                 <input type="text" id="username" name="username" placeholder='Username' className='w-48 rounded-sm' required />
               </p>
@@ -39,7 +39,7 @@ const Register = () => {
               </p>
               <br />
               <p>
-                <button onClick={()=>handleSubmit()}>注册</button>
+                <button className='bg-slate-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-full' onClick={()=>handleSubmit()}>注册</button>
               </p>
             </div>
             
@@ -47,7 +47,7 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <div className='px-56 py-2 text-center bg-slate-400 rounded-3xl'>
+      <div className='px-56 py-2 text-center rounded-3xl'>
         contact us: 221900209@smail.nju.edu.cn
       </div>
     </div>

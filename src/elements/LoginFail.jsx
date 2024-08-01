@@ -8,9 +8,9 @@ import axios from 'axios'
 const LoginFail = () => {
     return (
       <div className="bg-sky-300 rounded-2xl p-4">
-        <h1>用户名或密码错误，登录失败！</h1>
+        <h1>用户名或密码错误，<br />请重新登录！</h1>
         <br />
-        <button onClick={()=>window.location.href='/hobbyQ-frontend/#/login'}>重新登录</button>
+        <button className='bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded text-3xl' onClick={()=>window.location.href='/hobbyQ-frontend/#/login'}>重新登录</button>
       </div>
     )
   }

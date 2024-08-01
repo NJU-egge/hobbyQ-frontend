@@ -72,18 +72,22 @@ const Note = () => {
     <div className='w-full bg-gray-100'>
       
       <div className='flex flex-wrap bg-sky-400 p-2'>
-          <div className='flex w-1/2 justify-start p-2'>
+          <div className='flex w-1/3 justify-start p-2'>
             <button onClick={()=> {window.location.href = `/hobbyQ-frontend/#/${params.username}/hobbyQ`}}>首页</button>
           </div>
-          <div className='flex w-1/2 justify-end p-2'>
+          <div className='flex w-1/3 justify-center p-2'>
+            <h>现在我们位于：{params.hobbyQName}的{params.title}</h>
+          </div>
+          <div className='flex w-1/3 justify-end p-2'>
             <p>Hello, {params.username}！</p>
             <a href='/hobbyQ-frontend/#/'>退出</a>
           </div>
         </div>
 
       <div className='flex flex-wrap bg-sky-200 p-2'>
-        <div className="flex w-1/5 flex-start flex-col bg-slate-500">
+        <div className="flex w-1/5 flex-start flex-col">
           <div className='flex flex-col bg-slate-200 p-2'>
+            <h className='text-center p-2'>兴趣圈</h>
               {
                 hobbyQData.map(item => (
                   <div key={item.hobbyQName}>
@@ -103,6 +107,7 @@ const Note = () => {
         
         <div className="flex w-1/5 flex-start flex-col bg-slate-500">
           <div className='flex flex-col bg-slate-200 p-2'>
+            <h className='text-center p-2'>标题</h>
             {
               titleData.map(item => (
                 <div key={item.title}>
@@ -121,19 +126,22 @@ const Note = () => {
         
         </div>
         
-        <div className="flex bg-green-100 justify-center w-3/5">
-          <div className='flex flex-col bg-slate-200 p-2'>
-            <div>
-              <div className='flex justify-center bg-slate-300 round-2xl p-2'>
+        <div className="flex bg-sky-200 justify-center w-3/5">
+          <div className='flex flex-col h-full bg-slate-200 p-2'>
+            <div className='flex flex-col bg-slate-200 p-2'>
+              <div className='flex flex-col bg-slate-300 round-2xl p-2'>
                 <h2>标题：{params.title}</h2>
-                <h2>发帖内容：</h2>
+              
               
                 {
                   noteData.map(item => (
-                    <div key={item.title}>             
+                    <div key={item.title}>  
+                      作者：{item.username}  
+                      <br />         
+                      <br />  
                       {item.note}
                       <br />  
-                      作者：{item.username}
+                      <br />  
                     </div>
                   ))
                 }
@@ -143,12 +151,12 @@ const Note = () => {
                 <h2>评论：</h2>
                 {
                   commentData.map(item => (
-                    <div key={item.comment} className='flex flex-row bg-slate-500 round-2xl p-2'> 
+                    <div key={item.comment} className='flex flex-row bg-slate-300 round-2xl p-2'> 
                       
                       <div className='flex flex-start bg-sky-50 p-2'>
                         {item.username}：
                       </div>    
-                      <div className='flex flex-end  bg-sky-200 p-2'>
+                      <div className='flex flex-end  bg-green-400 p-2'>
                         {item.comment}
                       </div>           
                     </div>
@@ -156,7 +164,7 @@ const Note = () => {
                 }
               </div>
 
-              <div className='flex flex-row justify-center  bg-blue-600 p-2'> 
+              <div className='flex justify-end bg-slate-300 p-2'> 
                 <input type="text" id="comment" name="comment" placeholder="天青色等烟雨，评论区等你" 
                  className='bg-slate-200 rounded-lg h-12 w-96' required />
                 <button onClick={()=>handleSubmit()} className='bg-slate-200 rounded-lg h-12 w-16'>评论</button>       
@@ -166,7 +174,7 @@ const Note = () => {
           </div>
         </div> 
       </div>
-      <div className='flex justify-center bg-slate-200 px-96 py-4'>
+      <div className='flex justify-center bg-slate-200 px-96 py-1'>
         contact me : 221900209@samil.nju.edu.cn
       </div>
     </div>
