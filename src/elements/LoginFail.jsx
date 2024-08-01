@@ -10,7 +10,7 @@ const LoginFail = () => {
       <div className="bg-sky-300 rounded-2xl p-4">
         <h1>用户名或密码错误，登录失败！</h1>
         <br />
-        <button onClick={()=>window.location.href='/login'}>重新登录</button>
+        <button onClick={()=>window.location.href='/hobbyQ-frontend/login'}>重新登录</button>
       </div>
     )
   }

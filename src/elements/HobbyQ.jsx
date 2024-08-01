@@ -6,10 +6,11 @@ import axios from 'axios'
 const HobbyQ = () => {
     const params = useParams()
     async function fetchTitleData() {
-      const response = await axios.get(`http://localhost:7001/api/hobbyQ/select/?hobbyQName=${params.hobbyQName}`)
+      const response = await axios.get(`http://localhost:22209/api/hobbyQ/select/?hobbyQName=${params.hobbyQName}`)
       const data = await Array.from(response.data);
       return data;
     }
+
     const [titleData, setTitleData] = useState([])
     useEffect(() => {
       fetchTitleData().then(data =>setTitleData(data))
@@ -19,7 +20,7 @@ const HobbyQ = () => {
     
       console.log('submit')
   
-      axios.post('http://localhost:7001/api/note/post' , {
+      axios.post('http://localhost:22209/api/note/post' , {
         hobbyQName: params.hobbyQName,  
         title: document.getElementById('title').value,
         note: document.getElementById('note').value,
@@ -28,51 +29,42 @@ const HobbyQ = () => {
         .then((response) => {
            
           console.log(response)
-          window.location.href = `/${params.username}/hobbyQ/${params.hobbyQName}`
+          window.location.href = `/hobbyQ-frontend/${params.username}/hobbyQ/${params.hobbyQName}`
           
         })
     }
 
     async function fetchHobbyQData() {
-      const response = await axios.get('http://localhost:7001/api/hobbyQ/get_all')
+      const response = await axios.get("http://localhost:22209/api/hobbyQ/get_all")
       const data = await Array.from(response.data);
       return data;
     }
-  
-  
-
     const [hobbyQData, setHobbyQData] = useState([])
     useEffect(() => {
       fetchHobbyQData().then(data =>setHobbyQData(data))
     }, [])
+
+
+    async function fetchHotData() {
+      const response = await axios.get(`http://localhost:22209/api/hot/select/?hobbyQName=${params.hobbyQName}`)
+      const data = await Array.from(response.data);
+      return data;
+    }
+    const [hotData, setHotData] = useState([])
+    useEffect(() => {
+      fetchHotData().then(data =>setHotData(data))
+    }, [])
   
     return (
-      /* <div>
-        <h1>Welcome to {params.hobbyQName}!</h1>
-  
-        <label htmlFor='title'>标题：</label>
-        <input type="text" id="title" name="title" required />
-        <br />  
-        <label htmlFor='note'>发帖内容：</label>
-        <input type="text" id="note" name="note" required />
-        <br />
-        <button onClick={()=>handleSubmit()}>发帖</button>
-        <div>
-          {
-            titleData.map(item => (
-              <div key={item.title}>
-                {item.title}
-                <a href={`/${params.username}/hobbyQ/${item.hobbyQName}/${item.title}`}>查看</a>
-              </div>
-            ))
-          }
-        </div>
-      </div> */
-
       <div className='w-full bg-gray-100'>
-        <div className='flex justify-end bg-sky-400 p-2'>
-          <p>Hello, {params.username}！</p>
-          <a href='/'>退出</a>
+        <div className='flex flex-wrap bg-sky-400 p-2'>
+          <div className='flex w-1/2 justify-start p-2'>
+            <button onClick={()=> {window.location.href = `/hobbyQ-frontend/${params.username}/hobbyQ`}}>首页</button>
+          </div>
+          <div className='flex w-1/2 justify-end p-2'>
+            <p>Hello, {params.username}！</p>
+            <a href='/hobbyQ-frontend/'>退出</a>
+          </div>
         </div>
 
         <div className='flex flex-wrap bg-sky-200 p-2'>
@@ -82,53 +74,73 @@ const HobbyQ = () => {
                   hobbyQData.map(item => (
                     <div key={item.hobbyQName}>
                       <div className='flex justify-around bg-slate-300 round-2xl p-2'>
-                      {item.hobbyQName}
-                      <a href={`/${params.username}/hobbyQ/${item.hobbyQName}`}>进入</a>
-                    </div>
+                        
+                        {item.hobbyQName}
+                        <a href={`/hobbyQ-frontend/${params.username}/hobbyQ/${item.hobbyQName}`}>进入</a>
+                      </div>
                     </div>
                     
                   ))
                 }
             </div>
             
-            <div className='flex justify-center bg-slate-200 p-2'>
-              <form action='http://localhost:7001/api/hobbyQ/create' method='POST'>
-                <label htmlFor='hobbyQName'>圈名：</label>
-                <input type="text" id="hobbyQName" name="hobbyQName" required />
-                <br />
-                <button type="submit" onClick={()=> {window.location.href = `/${params.username}/hobbyQ`}}>创建</button>
-              </form>
-            </div>
-          </div>
             
-          <div className="flex bg-green-100 justify-center w-4/5">
-              <div>
-                <h1>Welcome to {params.hobbyQName}!</h1>
-        
-                <label htmlFor='title'>标题：</label>
-                <input type="text" id="title" name="title" required />
-                <br />  
-                <label htmlFor='note'>发帖内容：</label>
-                <input type="text" id="note" name="note" required />
-                <br />
-                <button onClick={()=>handleSubmit()}>发帖</button>
-              <div>
-                {
-                  titleData.map(item => (
-                    <div key={item.title}>
+          </div>
+          
+          <div className="flex w-1/5 flex-start flex-col bg-slate-500">
+            <div className='flex flex-col bg-slate-200 p-2'>
+              {
+                titleData.map(item => (
+                  <div key={item.title}>
+                    <div className='flex justify-around bg-slate-300 round-2xl p-2'>
+                      
                       {item.title}
-                      <a href={`/${params.username}/hobbyQ/${item.hobbyQName}/${item.title}`}>查看</a>
+                      <a href={`/hobbyQ-frontend/${params.username}/hobbyQ/${item.hobbyQName}/${item.title}`}>查看</a>
                     </div>
-                  ))
-                }
-              </div>
+                  </div>
+                  
+                ))
+                
+              }
+            </div>
+            
+          
+          </div>
+          
+          <div className="flex bg-green-100 justify-center w-3/5">
+              <div className='flex flex-col justify-evenly bg-slate-200 p-2'>
+                <h1>Welcome to {params.hobbyQName}!</h1>
+                <h>发帖规则：标题和内容必填，标题不可以和已有标题重复</h>
+                
+                <input type="text" id="title" name="title" className='w-full h-11 bg-slate-800' placeholder='请输入标题' required />
+                
+                <input type="text" id="note" name="note" className='w-full h-11 bg-slate-500' placeholder='请输入内容' required />
+              
+                <button onClick={()=>handleSubmit()}>发帖</button>
+              
+            </div>
+            <div>
+              <h>活跃度</h>
+              {
+                hotData.map(item => (
+                  <div key={item.username}>
+                    <div className='flex justify-around bg-slate-300 round-2xl p-2'>
+                      <p>{item.username}</p>
+                      <p>{item.hot}</p>
+                      
+                    </div>
+                  </div>
+                  
+                ))
+                
+              }
             </div>
           </div> 
         </div>
         
       
-        <div className='flex justify-center bg-slate-200 p-96'>
-          contact us: 221900209@samil.nju.edu.cn
+        <div className='flex justify-center bg-slate-200 px-96 py-4'>
+          contact me : 221900209@smail.nju.edu.cn
         </div>
       </div>
       )
