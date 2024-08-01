@@ -15,9 +15,9 @@ const Login = () => {
     axios.post('http://localhost:22209/api/user/login' , {username: document.getElementById('username').value, password: document.getElementById('password').value})
       .then((response) => {
         if (response.data === true) {
-          window.location.href = `/hobbyQ-frontend/${username}/hobbyQ`
+          window.location.href = `/hobbyQ-frontend/#/${username}/hobbyQ`
         } else {
-          window.location.href = "/hobbyQ-frontend/login/fail"
+          window.location.href = "/hobbyQ-frontend/#/login/fail"
         }
       })
   }
@@ -29,7 +29,7 @@ const Login = () => {
         <div className="login">
           <div className="hero">
             <h1>Sign In to <br /> Open the HobbyQ</h1>
-            <p>If you don't have an account, <br /> you can <a href="/hobbyQ-frontend/register">register here</a>. </p>
+            <p>If you don't have an account, <br /> you can <a href="/hobbyQ-frontend/#/register">register here</a>. </p>
           </div>
           <div className="main content-center bg-fuchsia-50">
 

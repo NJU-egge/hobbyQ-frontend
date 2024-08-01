@@ -17,13 +17,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
-        <Route path="hobbyQ-frontend/register/fail" element={<RegisterFail />} />
+        <Route path="/register/fail" element={<RegisterFail />} />
         <Route path="/login" element={<Login />} />
-        <Route path="hobbyQ-frontend/login/fail" element={<LoginFail />} />
-        <Route path="hobbyQ-frontend/:username/hobbyQ" element={<HobbyQIndex />} />
-        <Route path="hobbyQ-frontend/:username/hobbyQ/:hobbyQName" element={<HobbyQ />} />
-        <Route path="hobbyQ-frontend/:username/hobbyQ/:hobbyQName/:title" element={<Note />} />
-        <Route path="*" element={<div>1</div>} />
+        <Route path="/login/fail" element={<LoginFail />} />
+        <Route path="/:username/hobbyQ" element={<HobbyQIndex />} />
+        <Route path="/:username/hobbyQ/:hobbyQName" element={<HobbyQ />} />
+        <Route path="/:username/hobbyQ/:hobbyQName/:title" element={<Note />} />
       </Routes>
     </HashRouter>
   );

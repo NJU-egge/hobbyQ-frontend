@@ -11,10 +11,10 @@ const Register = () => {
       .then((response) => {
         if (response.data === true) {
           console.log("注册成功")
-          window.location.href = "/hobbyQ-frontend/login"
+          window.location.href = "/hobbyQ-frontend/#/login"
         } else {
           console.log("注册失败")
-          window.location.href = "/hobbyQ-frontend/register/fail"
+          window.location.href = "/hobbyQ-frontend/#/register/fail"
         }
       })
   }

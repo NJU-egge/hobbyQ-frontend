@@ -29,7 +29,7 @@ const HobbyQ = () => {
         .then((response) => {
            
           console.log(response)
-          window.location.href = `/hobbyQ-frontend/${params.username}/hobbyQ/${params.hobbyQName}`
+          window.location.href = `/hobbyQ-frontend/#/${params.username}/hobbyQ/${params.hobbyQName}`
           
         })
     }
@@ -59,11 +59,11 @@ const HobbyQ = () => {
       <div className='w-full bg-gray-100'>
         <div className='flex flex-wrap bg-sky-400 p-2'>
           <div className='flex w-1/2 justify-start p-2'>
-            <button onClick={()=> {window.location.href = `/hobbyQ-frontend/${params.username}/hobbyQ`}}>首页</button>
+            <button onClick={()=> {window.location.href = `/hobbyQ-frontend/#/${params.username}/hobbyQ`}}>首页</button>
           </div>
           <div className='flex w-1/2 justify-end p-2'>
             <p>Hello, {params.username}！</p>
-            <a href='/hobbyQ-frontend/'>退出</a>
+            <a href='/hobbyQ-frontend/#/'>退出</a>
           </div>
         </div>
 
@@ -76,7 +76,7 @@ const HobbyQ = () => {
                       <div className='flex justify-around bg-slate-300 round-2xl p-2'>
                         
                         {item.hobbyQName}
-                        <a href={`/hobbyQ-frontend/${params.username}/hobbyQ/${item.hobbyQName}`}>进入</a>
+                        <a href={`/hobbyQ-frontend/#/${params.username}/hobbyQ/${item.hobbyQName}`}>进入</a>
                       </div>
                     </div>
                     
@@ -95,7 +95,7 @@ const HobbyQ = () => {
                     <div className='flex justify-around bg-slate-300 round-2xl p-2'>
                       
                       {item.title}
-                      <a href={`/hobbyQ-frontend/${params.username}/hobbyQ/${item.hobbyQName}/${item.title}`}>查看</a>
+                      <a href={`/hobbyQ-frontend/#/${params.username}/hobbyQ/${item.hobbyQName}/${item.title}`}>查看</a>
                     </div>
                   </div>
                   
