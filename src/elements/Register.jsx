@@ -24,7 +24,7 @@ const Register = () => {
         <div className="login">
           <div className="hero">
             <h1>Register to <br /> Begin Your Trip</h1>
-            <p>If you have an account, <br /> you can <a href="/hobbyQ-frontend/login">log in here</a>. </p>
+            <p>If you have an account, <br /> you can <a href="/hobbyQ-frontend/#/login">log in here</a>. </p>
           </div>
           <div className="main content-center bg-fuchsia-50">
 

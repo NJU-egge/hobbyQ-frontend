@@ -14,7 +14,7 @@ const Home = () => {
         <br />
         <div className="flex flex-row justify-evenly bg-blue-50 px-6 py-4 rounded-2xl">
           <div className="flex justify-content-center bg-blue-500 p-2 rounded-2xl shadow-2xl">
-            <a href="/hobbyQ-frontend//#/login" className="text-white font-bold text-2xl">登录</a>
+            <a href="/hobbyQ-frontend/#/login" className="text-white font-bold text-2xl">登录</a>
           </div>
           <div className="flex justify-content-center bg-blue-500 p-2 rounded-2xl shadow-2xl">
             <a href="/hobbyQ-frontend/#/register" className="text-white font-bold text-2xl">注册</a>
