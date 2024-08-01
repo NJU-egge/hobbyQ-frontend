@@ -15,10 +15,10 @@ import Note from './elements/Note'
 function App() {
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="hobbyQ-frontend/" element={<Home />} />
-        <Route path="hobbyQ-frontend/register" element={<Register />} />
+    <BrowserRouter basename='/hobbyQ-frontend'>
+      <Routes >
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
         <Route path="hobbyQ-frontend/register/fail" element={<RegisterFail />} />
         <Route path="hobbyQ-frontend/login" element={<Login />} />
         <Route path="hobbyQ-frontend/login/fail" element={<LoginFail />} />
