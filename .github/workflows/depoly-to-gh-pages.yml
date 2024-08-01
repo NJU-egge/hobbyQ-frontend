@@ -1,0 +1,30 @@
+name: 部署前端至gh-pages分支
+
+on:  
+  push:  
+    branches:  
+      - main
+
+jobs:
+  publish-gpr:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.15.0
+          registry-url: https://npm.pkg.github.com/
+      - run: npm ci
+      # 构建项目  
+      - name: Build  
+        run: npm run build
+      - name: Deploy  
+        uses: peaceiris/actions-gh-pages@v3  
+        with:  
+          github_token: ${{ secrets.GITHUB_TOKEN }}  
+          publish_dir: ./docs
+  
+ 
