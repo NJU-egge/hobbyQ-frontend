@@ -105,7 +105,7 @@ const Note = () => {
           
         </div>
         
-        <div className="flex w-1/5 flex-start flex-col bg-slate-500">
+        <div className="flex w-1/5 flex-start flex-col">
           <div className='flex flex-col bg-slate-200 p-2'>
             <h className='text-center p-2'>标题</h>
             {
@@ -164,7 +164,7 @@ const Note = () => {
                 }
               </div>
 
-              <div className='flex justify-end bg-slate-300 p-2'> 
+              <div className='flex justify-center bg-slate-300 p-2'> 
                 <input type="text" id="comment" name="comment" placeholder="天青色等烟雨，评论区等你" 
                  className='bg-slate-200 rounded-lg h-12 w-96' required />
                 <button onClick={()=>handleSubmit()} className='bg-slate-200 rounded-lg h-12 w-16'>评论</button>       
