@@ -76,7 +76,7 @@ const Note = () => {
             <button onClick={()=> {window.location.href = `/hobbyQ-frontend/#/${params.username}/hobbyQ`}} className='bg-sky-400 text-blue-700'>首页</button>
           </div>
           <div className='flex w-1/3 justify-center p-2'>
-            <h>现在我们位于：{params.hobbyQName}的{params.title}</h>
+            <h>现在我们位于：{params.hobbyQName} 的 {params.title}</h>
           </div>
           <div className='flex w-1/3 justify-end p-2'>
             <p>Hello, {params.username}！</p>
@@ -100,11 +100,8 @@ const Note = () => {
                   
                 ))
               }
-          </div>
-          
-          
-        </div>
-        
+          </div>         
+        </div>      
         <div className="flex w-1/5 flex-start flex-col">
           <div className='flex flex-col bg-slate-200 p-2'>
             <h className='text-center p-2'>标题</h>
@@ -116,23 +113,17 @@ const Note = () => {
                     {item.title}
                     <a href={`/hobbyQ-frontend/#/${params.username}/hobbyQ/${item.hobbyQName}/${item.title}`}>查看</a>
                   </div>
-                </div>
-                
-              ))
-              
+                </div>              
+              ))          
             }
           </div>
-          
-        
         </div>
         
         <div className="flex bg-sky-200 justify-center w-3/5">
           <div className='flex flex-col h-full bg-slate-200 p-2'>
             <div className='flex flex-col bg-slate-200 p-2'>
               <div className='flex flex-col bg-slate-300 round-2xl p-2'>
-                <h2>标题：{params.title}</h2>
-              
-              
+                <h2>标题：{params.title}</h2>         
                 {
                   noteData.map(item => (
                     <div key={item.title}>  
