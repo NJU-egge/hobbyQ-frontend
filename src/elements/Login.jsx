@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-
 import { BrowserRouter, Route, Routes, useParams } from'react-router-dom'
 import axios from 'axios'
 
@@ -11,7 +10,6 @@ const Login = () => {
   function handleSubmit() {
     const username = document.getElementById('username').value
     console.log('submit')
-
     axios.post('http://localhost:22209/api/user/login' , {username: document.getElementById('username').value, password: document.getElementById('password').value})
       .then((response) => {
         if (response.data === true) {

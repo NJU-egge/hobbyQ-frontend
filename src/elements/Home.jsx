@@ -1,9 +1,3 @@
-//
-// Home.jsx 主要负责欢迎页面。
-//
-
-
-
 // 初始界面，含有登录、注册按钮
 const Home = () => {
     return (
@@ -20,12 +14,10 @@ const Home = () => {
             <a href="/hobbyQ-frontend/#/register" className="text-white font-bold text-2xl">注册</a>
           </div>
         </div>
-      
         <div className='px-26 py-0 text-center rounded-3xl'>
-          contact me : 221900209@smail.nju.edu.cn
+          contact me: 221900209@smail.nju.edu.cn
         </div>
       </div>
-      
     );
   }
 

@@ -60,7 +60,7 @@ const HobbyQ = () => {
       <div className='w-full bg-gray-100'>
         <div className='flex flex-wrap bg-sky-400 p-2'>
           <div className='flex w-1/3 justify-start p-2'>
-            <button onClick={()=> {window.location.href = `/hobbyQ-frontend/#/${params.username}/hobbyQ`}}>首页</button>
+            <button onClick={()=> {window.location.href = `/hobbyQ-frontend/#/${params.username}/hobbyQ`}} className='bg-sky-400 text-blue-700'>首页</button>
             
           </div>
           <div className='flex w-1/3 justify-center p-2'>

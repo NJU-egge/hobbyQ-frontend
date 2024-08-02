@@ -19,7 +19,7 @@ const Register = () => {
       })
   }
   return (
-    <div id='page' className="w-full bg-sky-200 rounded-2xl">
+    <div id='page' className="w-full bg-sky-200 rounded-3xl">
       <div className="container">
         <div className="login">
           <div className="hero">
